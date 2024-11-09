@@ -21,8 +21,9 @@ public class AuthController {
 
     @GetMapping("/test")
     public String testEndpoint() {
-        return "Good"; // Mensaje de prueba
+        return "Good"; 
     }
+
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Usuario usuario) {
