@@ -54,17 +54,16 @@ public class Usuario {
 
     // Relaciones con otras entidades
     @NotNull
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sede_id", nullable = false)
     private Sede sede;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "departamento_id", nullable = false)
     private Departamento departamento;
-
     @NotNull
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrera_id", nullable = false)
     private Carrera carrera;
 
