@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/HorarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/HorarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/ImagenProducto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Tienda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/HorarioService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/HorarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
-    </list>
+    <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +138,7 @@
       <workItem from="1731480008832" duration="8415000" />
       <workItem from="1731549106927" duration="10116000" />
       <workItem from="1732060247459" duration="10144000" />
-      <workItem from="1732111308587" duration="1037000" />
+      <workItem from="1732111308587" duration="1746000" />
     </task>
     <servers />
   </component>
