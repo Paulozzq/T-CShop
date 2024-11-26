@@ -7,40 +7,48 @@ INSERT INTO sedes (nombre_sede, ciudad, direccion) VALUES ('Sede Arequipa', 'Are
 INSERT INTO sedes (nombre_sede, ciudad, direccion) VALUES ('Sede Trujillo', 'Trujillo', 'Av. Ejemplo 456');
 INSERT INTO sedes (nombre_sede, ciudad, direccion) VALUES ('Sede Lima', 'Lima', 'Av. Ejemplo 789');
 
--- Inserción de Departamentos
+INSERT INTO departamentos (nombre_departamento) VALUES ('Electricidad y Electrónica');
+INSERT INTO departamentos (nombre_departamento) VALUES ('Gestión y Producción');
+INSERT INTO departamentos (nombre_departamento) VALUES ('Mecánica y Aviación');
+INSERT INTO departamentos (nombre_departamento) VALUES ('Mecatrónica');
+INSERT INTO departamentos (nombre_departamento) VALUES ('Minería y Procesos Químico-Metalúrgicos');
+INSERT INTO departamentos (nombre_departamento) VALUES ('Seguridad y Salud en el Trabajo');
+INSERT INTO departamentos (nombre_departamento) VALUES ('Tecnología Agrícola');
 INSERT INTO departamentos (nombre_departamento) VALUES ('Tecnología Digital');
-INSERT INTO departamentos (nombre_departamento) VALUES ('Diseño');
-INSERT INTO departamentos (nombre_departamento) VALUES ('Construcción');
-INSERT INTO departamentos (nombre_departamento) VALUES ('Administración');
-INSERT INTO departamentos (nombre_departamento) VALUES ('Marketing');
-INSERT INTO departamentos (nombre_departamento) VALUES ('Salud');
 
--- Inserción de Carreras
--- Tecnología Digital
-INSERT INTO carreras (nombre_carrera) VALUES ('Desarrollo de Software');
-INSERT INTO carreras (nombre_carrera) VALUES ('Redes y Comunicaciones');
-INSERT INTO carreras (nombre_carrera) VALUES ('Ciberseguridad');
+-- Carreras de "Electricidad y Electrónica"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Mecatrónica Industrial', 1);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Electricidad Industrial', 1);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Electrónica y Automatización Industrial', 1);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Tecnología Mecánica Eléctrica', 1);
 
--- Diseño
-INSERT INTO carreras (nombre_carrera) VALUES ('Diseño Gráfico');
-INSERT INTO carreras (nombre_carrera) VALUES ('Diseño de Modas');
-INSERT INTO carreras (nombre_carrera) VALUES ('Diseño de Interiores');
+-- Carreras de "Gestión y Producción"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Logística Digital Integrada', 2);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Administración y Emprendimiento de Negocios Digitales', 2);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Marketing Digital Analítico', 2);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Diseño Industrial', 2);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Tecnología de la Producción', 2);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Producción y Gestión Industrial', 2);
 
--- Construcción
-INSERT INTO carreras (nombre_carrera) VALUES ('Ingeniería Civil');
-INSERT INTO carreras (nombre_carrera) VALUES ('Arquitectura');
-INSERT INTO carreras (nombre_carrera) VALUES ('Técnico en Construcción');
+-- Carreras de "Mecánica y Aviación"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Mantenimiento de Equipo Pesado', 3);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Mecatrónica y Gestión Automotriz', 3);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Gestión y Mantenimiento de Maquinaria Pesada', 3);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Aviónica y Mecánica Aeronáutica', 3);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Mantenimiento y Gestión de Plantas Industriales', 3);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Tecnología Mecánica Eléctrica', 3);
 
--- Administración
-INSERT INTO carreras (nombre_carrera) VALUES ('Administración de Empresas');
-INSERT INTO carreras (nombre_carrera) VALUES ('Contabilidad');
-INSERT INTO carreras (nombre_carrera) VALUES ('Recursos Humanos');
+-- Carreras de "Mecatrónica"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Mecatrónica', 4);
 
--- Marketing
-INSERT INTO carreras (nombre_carrera) VALUES ('Marketing Digital');
-INSERT INTO carreras (nombre_carrera) VALUES ('Investigación de Mercados');
-INSERT INTO carreras (nombre_carrera) VALUES ('Publicidad');
+-- Carreras de "Minería y Procesos Químico-Metalúrgicos"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Topografía y Geomática', 5);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Procesos Químicos y Metalúrgicos', 5);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Operaciones Mineras', 5);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Operación de Plantas de Procesamiento de Minerales', 5);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Gestión de Seguridad y Salud en el Trabajo', 5);
 
+<<<<<<< HEAD
 -- Salud
 INSERT INTO carreras (nombre_carrera) VALUES ('Técnico en Enfermería');
 INSERT INTO carreras (nombre_carrera) VALUES ('Nutrición');
@@ -61,3 +69,18 @@ INSERT INTO tiendas (sede_id, descripcion, nombre_tienda, ubicacion_mapa, imagen
 
 
 INSERT INTO `horarios_tienda` (`hora_apertura`, `hora_cierre`, `id_horario`, `tienda_id`, `estado`) VALUES ('00:00:00.000000', '06:00:00.000000', NULL, '1', NULL), ('01:00:00.000000', '07:00:00.000000', NULL, '7', NULL), ('06:00:00.000000', '12:00:00.000000', NULL, '4', NULL), ('07:00:00.000000', '11:30:00.000000', NULL, '8', NULL), ('13:00:00.000000', '19:00:00.000000', NULL, '2', NULL), ('14:00:00.000000', '20:00:00.000000', NULL, '9', NULL), ('08:00:00.000000', '18:00:00.000000', NULL, '3', NULL), ('09:00:00.000000', '17:00:00.000000', NULL, '6', NULL), ('16:00:00.000000', '23:00:00.000000', NULL, '5', NULL), ('17:00:00.000000', '00:00:00.000000', NULL, '10', NULL)
+=======
+-- Carreras de "Seguridad y Salud en el Trabajo"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Gestión de Seguridad y Salud en el Trabajo', 6);
+
+-- Carreras de "Tecnología Agrícola"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Tecnología Agrícola', 7);
+
+-- Carreras de "Tecnología Digital"
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Modelado y Animación Digital', 8);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Ciberseguridad y Auditoría Informática', 8);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Diseño y Desarrollo de Software', 8);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Diseño y Desarrollo de Simuladores y Videojuegos', 8);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Administración de Redes y Comunicaciones', 8);
+INSERT INTO carreras (nombre_carrera, id_departamento) VALUES ('Big Data y Ciencia de Datos', 8);
+>>>>>>> 01a100df631b1ccc26a698850411e90e305401d6

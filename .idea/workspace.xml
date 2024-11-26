@@ -5,41 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AfiliadoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/CategoriaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/AfiliadoDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/SedeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/TiendaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/UsuarioDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/AfiliadoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/AfiliadoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/CategoriaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/CategoriaServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/tcshop/tcshopspring/controllers/TiendaControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/HorarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/HorarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/TiendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/TiendaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/AfiliadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/AfiliadoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/HorarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/HorarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Afiliado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Afiliado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/HorarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/HorarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/HorarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/HorarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/TiendaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/TiendaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/TiendaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/TiendaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/HorarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/HorarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/TiendaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/TiendaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/daos/AfiliadoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/daos/AfiliadoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/daos/HorarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/daos/HorarioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Afiliado.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Afiliado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/HorarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/HorarioService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/HorarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/HorarioServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/TiendaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/TiendaService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/TiendaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/TiendaServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +152,7 @@
       <workItem from="1731549106927" duration="10116000" />
       <workItem from="1732060247459" duration="10144000" />
       <workItem from="1732111308587" duration="2553000" />
-      <workItem from="1732306086833" duration="35393000" />
+      <workItem from="1732306086833" duration="36697000" />
     </task>
     <servers />
   </component>
