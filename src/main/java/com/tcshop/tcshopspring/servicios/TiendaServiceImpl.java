@@ -1,5 +1,8 @@
 package com.tcshop.tcshopspring.servicios;
 
+import com.tcshop.tcshopspring.dto.SedeDto;
+import com.tcshop.tcshopspring.dto.TiendaDto;
+import com.tcshop.tcshopspring.modelo.daos.HorarioRepository;
 import com.tcshop.tcshopspring.modelo.daos.TiendaRepository;
 import com.tcshop.tcshopspring.modelo.entidades.Tienda;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,15 +10,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TiendaServiceImpl implements TiendaService {
 
     private final TiendaRepository tiendaRepository;
+    private final HorarioRepository horarioRepository;
 
     @Autowired
-    public TiendaServiceImpl(TiendaRepository tiendaRepository) {
+    public TiendaServiceImpl(TiendaRepository tiendaRepository, HorarioRepository horarioRepository) {
         this.tiendaRepository = tiendaRepository;
+        this.horarioRepository = horarioRepository;
     }
 
     @Override
@@ -34,8 +40,33 @@ public class TiendaServiceImpl implements TiendaService {
     }
 
     @Override
-    public List<Tienda> listarTodasLasTiendas() {
-        return tiendaRepository.findAll();
+    public List<TiendaDto> listarTodasLasTiendas(Integer idSede) {
+        List<Tienda> tiendas = tiendaRepository.findAll();
+
+        return tiendas.stream()
+                .filter(tienda -> tienda.getSede() != null && tienda.getSede().getIdSede().equals(idSede))
+                .map(tienda -> {
+                    TiendaDto dto = new TiendaDto();
+                    dto.setIdTienda(tienda.getIdTienda());
+                    dto.setNombre(tienda.getNombre());
+                    dto.setDescripcion(tienda.getDescripcion());
+                    dto.setUbicacion(tienda.getUbicacion());
+                    dto.setImagen(tienda.getImagen());
+                    dto.setQrImagen(tienda.getQrImagen());
+
+
+                    if (tienda.getSede() != null) {
+                        SedeDto sedeDto = new SedeDto();
+                        sedeDto.setIdSede(tienda.getSede().getIdSede());
+                        sedeDto.setNombreSede(tienda.getSede().getNombreSede());
+                        sedeDto.setCiudad(tienda.getSede().getCiudad());
+                        sedeDto.setDireccion(tienda.getSede().getDireccion());
+                        dto.setSede(sedeDto);
+                    }
+
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
 
     @Override

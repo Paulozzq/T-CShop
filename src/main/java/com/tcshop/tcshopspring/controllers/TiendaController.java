@@ -1,6 +1,8 @@
 package com.tcshop.tcshopspring.controllers;
 
 
+import com.tcshop.tcshopspring.dto.SedeDto;
+import com.tcshop.tcshopspring.dto.TiendaDto;
 import com.tcshop.tcshopspring.modelo.entidades.Horario;
 import com.tcshop.tcshopspring.modelo.entidades.Tienda;
 import com.tcshop.tcshopspring.servicios.HorarioServiceImpl;
@@ -26,21 +28,43 @@ public class TiendaController {
         this.horarioServiceImpl = horarioServiceImpl;
     }
 
+
     @PostMapping
-    public ResponseEntity<Tienda> guardarTienda(@RequestBody Tienda tienda) {
+    public ResponseEntity<TiendaDto> guardarTienda(@RequestBody Tienda tienda) {
         Tienda nuevaTienda = tiendaService.guardarTienda(tienda);
+
         Horario horarioPorDefecto = new Horario();
         horarioPorDefecto.setApertura(LocalTime.parse("09:00"));
         horarioPorDefecto.setCierre(LocalTime.parse("18:00"));
+
+        if (horarioPorDefecto.getApertura().isAfter(horarioPorDefecto.getCierre())) {
+            throw new IllegalArgumentException("La hora de apertura no puede ser posterior a la hora de cierre.");
+        }
+
         LocalTime horaActual = LocalTime.now();
+
         if (horaActual.isAfter(horarioPorDefecto.getApertura()) && horaActual.isBefore(horarioPorDefecto.getCierre())) {
             horarioPorDefecto.setEstado("abierto");
         } else {
             horarioPorDefecto.setEstado("cerrado");
         }
+
         horarioPorDefecto.setTienda(nuevaTienda);
         horarioServiceImpl.guardarHorario(horarioPorDefecto);
-        return ResponseEntity.ok(nuevaTienda);
+
+        TiendaDto tiendaDto = new TiendaDto();
+        tiendaDto.setIdTienda(nuevaTienda.getIdTienda());
+        tiendaDto.setNombre(nuevaTienda.getNombre());
+        tiendaDto.setDescripcion(nuevaTienda.getDescripcion());
+        tiendaDto.setUbicacion(nuevaTienda.getUbicacion());
+        tiendaDto.setImagen(nuevaTienda.getImagen());
+        tiendaDto.setQrImagen(nuevaTienda.getQrImagen());
+
+        SedeDto sedeDto = new SedeDto();
+        sedeDto.setIdSede(nuevaTienda.getSede().getIdSede());
+        tiendaDto.setSede(sedeDto);
+
+        return ResponseEntity.ok(tiendaDto);
     }
 
     @GetMapping("/{id}")
@@ -55,9 +79,10 @@ public class TiendaController {
         return tienda.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping
-    public List<Tienda> listarTodasLasTiendas() {
-        return tiendaService.listarTodasLasTiendas();
+    @GetMapping("/tiendas/sede/{idSede}")
+    public ResponseEntity<List<TiendaDto>> obtenerTiendasPorSede(@PathVariable Integer idSede) {
+        List<TiendaDto> tiendas = tiendaService.listarTodasLasTiendas(idSede);
+        return ResponseEntity.ok(tiendas);
     }
 
     @DeleteMapping("/{id}")

@@ -1,9 +1,11 @@
 package com.tcshop.tcshopspring.modelo.entidades;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "afiliados_tienda")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Afiliado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

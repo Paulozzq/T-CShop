@@ -1,5 +1,7 @@
 package com.tcshop.tcshopspring.servicios;
 
+import com.tcshop.tcshopspring.dto.SedeDto;
+import com.tcshop.tcshopspring.dto.TiendaAbiertaDto;
 import com.tcshop.tcshopspring.modelo.daos.HorarioRepository;
 import com.tcshop.tcshopspring.modelo.daos.TiendaRepository;
 import com.tcshop.tcshopspring.modelo.entidades.Horario;
@@ -10,10 +12,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class HorarioServiceImpl implements HorarioService {
-
     private HorarioRepository horarioRepository;
     private final TiendaRepository tiendaRepository;
 
@@ -63,8 +65,45 @@ public class HorarioServiceImpl implements HorarioService {
     }
 
     @Override
-    public List<Horario> obtenerTiendasAbiertas() {
+    public List<TiendaAbiertaDto> obtenerHorariosAbiertos(Integer idSede) {
+        List<Horario> horarios = horarioRepository.findAll();
         LocalTime horaActual = LocalTime.now();
-        return horarioRepository.findByAperturaBeforeAndCierreAfter(horaActual, horaActual);
+        return horarios.stream()
+                .filter(horario -> estaAbierto(horario, horaActual) && horario.getTienda().getSede().getIdSede().equals(idSede))
+                .map(horario -> {
+                    Tienda tienda = horario.getTienda();
+                    TiendaAbiertaDto dto = new TiendaAbiertaDto();
+
+                    dto.setIdHorario(horario.getIdHorario());
+                    dto.setApertura(horario.getApertura().toString());
+                    dto.setCierre(horario.getCierre().toString());
+                    dto.setEstado("Abierto");
+
+                    dto.setIdTienda(tienda.getIdTienda());
+                    dto.setNombreTienda(tienda.getNombre());
+                    dto.setDescripcion(tienda.getDescripcion());
+                    dto.setUbicacion(tienda.getUbicacion());
+                    dto.setImagen(tienda.getImagen());
+                    dto.setQrImagen(tienda.getQrImagen());
+
+                    SedeDto sedeDto = new SedeDto();
+                    sedeDto.setIdSede(tienda.getSede().getIdSede());
+                    sedeDto.setNombreSede(tienda.getSede().getNombreSede());
+                    sedeDto.setCiudad(tienda.getSede().getCiudad());
+                    sedeDto.setDireccion(tienda.getSede().getDireccion());
+
+                    dto.setSede(sedeDto);
+
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
+
+
+    private boolean estaAbierto(Horario horario, LocalTime horaActual) {
+        return (horaActual.isAfter(horario.getApertura()) || horaActual.equals(horario.getApertura())) &&
+                (horaActual.isBefore(horario.getCierre()) || horaActual.equals(horario.getCierre()));
+    }
+
+
 }
