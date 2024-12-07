@@ -1,10 +1,10 @@
 package com.tcshop.tcshopspring.controllers;
 
-import com.tcshop.tcshopspring.dto.AfiliadoDto;
-import com.tcshop.tcshopspring.dto.SedeDto;
-import com.tcshop.tcshopspring.dto.TiendaDto;
-import com.tcshop.tcshopspring.dto.UsuarioDto;
 import com.tcshop.tcshopspring.modelo.entidades.Afiliado;
+import com.tcshop.tcshopspring.dto.AfiliadoDto;
+import com.tcshop.tcshopspring.dto.TiendaDto;
+import com.tcshop.tcshopspring.dto.SedeDto;
+import com.tcshop.tcshopspring.dto.UsuarioDto;
 import com.tcshop.tcshopspring.servicios.AfiliadoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -92,6 +92,5 @@ public class AfiliadoController {
 
         return afiliadoDto;
     }
-
 
 }

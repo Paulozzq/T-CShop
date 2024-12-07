@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "detalle_pedido")
+@Table(name = "detalles_pedido")
 public class DetallePedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,12 +13,12 @@ public class DetallePedido {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pedido_id", nullable = false)
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "producto_id", nullable = false)
+    @JoinColumn(name = "producto_id")
     private Producto producto;
 
     @NotNull
@@ -26,24 +26,8 @@ public class DetallePedido {
     private Integer cantidad;
 
     @NotNull
-    @Column(name = "precio_unitario")
-    private Double precioUnitario;
-
-    @NotNull
-    @Column(name = "subtotal")
-    private Double subtotal;
-
-    public DetallePedido() {
-    }
-
-    public DetallePedido(Integer idDetalle, Pedido pedido, Producto producto, Integer cantidad, Double precioUnitario, Double subtotal) {
-        this.idDetalle = idDetalle;
-        this.pedido = pedido;
-        this.producto = producto;
-        this.cantidad = cantidad;
-        this.precioUnitario = precioUnitario;
-        this.subtotal = subtotal;
-    }
+    @Column(name = "precio")
+    private Double precio;
 
     public Integer getIdDetalle() {
         return idDetalle;
@@ -77,34 +61,11 @@ public class DetallePedido {
         this.cantidad = cantidad;
     }
 
-    public @NotNull Double getPrecioUnitario() {
-        return precioUnitario;
+    public @NotNull Double getPrecio() {
+        return precio;
     }
 
-    public void setPrecioUnitario(@NotNull Double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
-
-    public @NotNull Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(@NotNull Double subtotal) {
-        this.subtotal = subtotal;
-    }
-
-    private void calcularSubtotal() {
-        this.subtotal = this.cantidad * this.precioUnitario;
-    }
-
-    @Override
-    public String toString() {
-        return "DetallePedido{" +
-                "idDetalle=" + idDetalle +
-                ", cantidad=" + cantidad +
-                ", precioUnitario=" + precioUnitario +
-                ", subtotal=" + subtotal +
-                ", producto=" + producto.getNombre() +
-                '}';
+    public void setPrecio(@NotNull Double precio) {
+        this.precio = precio;
     }
 }

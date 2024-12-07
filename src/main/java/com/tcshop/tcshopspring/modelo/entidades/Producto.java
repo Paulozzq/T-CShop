@@ -35,13 +35,16 @@ public class Producto {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tienda_id", nullable = false)
     private Tienda tienda;
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<ImagenProducto> imagenes;
+    @NotNull
+    @Column(name="imagen")
+    private String imagenes;
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
 
     public Producto() {
     }
 
-    public Producto(Integer idProducto, String nombre, String descripcion, Double precio, Integer stock, Date fechaCreacion, Usuario usuario, Categoria categoria, Tienda tienda, List<ImagenProducto> imagenes) {
+    public Producto(Integer idProducto, String nombre, String descripcion, Double precio, Integer stock, Date fechaCreacion, Usuario usuario, Categoria categoria, Tienda tienda, String imagenes) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -117,11 +120,11 @@ public class Producto {
         this.tienda = tienda;
     }
 
-    public List<ImagenProducto> getImagenes() {
+    public @NotNull String getImagenes() {
         return imagenes;
     }
 
-    public void setImagenes(List<ImagenProducto> imagenes) {
+    public void setImagenes(@NotNull String imagenes) {
         this.imagenes = imagenes;
     }
 }

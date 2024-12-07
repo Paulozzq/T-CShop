@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,72 +13,26 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPedido;
-    @CreationTimestamp
-    @Column(name = "fecha_pedido", updatable = false)
-    private Date fechaPedido;
-    @NotNull
-    @Column(name = "estado_pedido")
-    private String estadoPedido = "pendiente";
-    @NotNull
-    @Column(name = "total")
-    private double total;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", nullable = false)
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DetallePedido> detalles = new ArrayList<>();
+
+    @CreationTimestamp
+    @Column(name = "fecha", updatable = false)
+    private Date fecha;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<DetallePedido> detalles;
+
+    @NotNull
+    @Column(name = "estado")
+    private String estado; // Por ejemplo: "carrito", "pagado"
+
+    @Column(name = "total")
+    private Double total;
 
     public Pedido() {
-    }
-
-    public Pedido(Integer idPedido, String estadoPedido, Date fechaPedido, double total, Usuario usuario, List<DetallePedido> detalles) {
-        this.idPedido = idPedido;
-        this.estadoPedido = estadoPedido;
-        this.fechaPedido = fechaPedido;
-        this.total = total;
-        this.usuario = usuario;
-        this.detalles = detalles;
-    }
-
-    public Integer getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(Integer idPedido) {
-        this.idPedido = idPedido;
-    }
-
-    public Date getFechaPedido() {
-        return fechaPedido;
-    }
-
-    public void setFechaPedido(Date fechaPedido) {
-        this.fechaPedido = fechaPedido;
-    }
-
-    public @NotNull String getEstadoPedido() {
-        return estadoPedido;
-    }
-
-    public void setEstadoPedido(@NotNull String estadoPedido) {
-        this.estadoPedido = estadoPedido;
-    }
-
-    @NotNull
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(@NotNull double total) {
-        this.total = total;
-    }
-
-    public List<DetallePedido> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<DetallePedido> detalles) {
-        this.detalles = detalles;
     }
 
     public Usuario getUsuario() {
@@ -90,31 +43,59 @@ public class Pedido {
         this.usuario = usuario;
     }
 
-    public void agregarDetalle(DetallePedido detalle) {
-        detalles.add(detalle);
-        detalle.setPedido(this);
-        calcularTotal();
+    public Integer getIdPedido() {
+        return idPedido;
     }
 
-    public void eliminarDetalle(DetallePedido detalle) {
-        detalles.remove(detalle);
-        detalle.setPedido(null);
-        calcularTotal();
+    public void setIdPedido(Integer idPedido) {
+        this.idPedido = idPedido;
     }
 
-    public void calcularTotal() {
-        this.total = detalles.stream().mapToDouble(DetallePedido::getSubtotal).sum();
+
+    public Date getFecha() {
+        return fecha;
     }
 
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "idPedido=" + idPedido +
-                ", fechaPedido=" + fechaPedido +
-                ", estadoPedido='" + estadoPedido + '\'' +
-                ", total=" + total +
-                ", usuario=" + usuario.getId() +
-                '}';
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
+
+    public List<DetallePedido> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<DetallePedido> detalles) {
+        this.detalles = detalles;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Double getTotal() {
+        if (detalles == null || detalles.isEmpty()) {
+            return 0.0;
+        }
+        return detalles.stream().mapToDouble(detalle -> detalle.getPrecio() != null ? detalle.getPrecio() : 0.0).sum();
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Double calcularTotal() {
+        if (detalles == null || detalles.isEmpty()) {
+            return 0.0;
+        }
+        return detalles.stream()
+                .mapToDouble(detalle -> detalle.getCantidad() * detalle.getPrecio())
+                .sum();
+    }
+
+
 
 }

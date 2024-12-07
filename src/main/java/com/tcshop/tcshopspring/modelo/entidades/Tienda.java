@@ -111,17 +111,4 @@ public class Tienda {
         this.usuario = usuario;
     }
 
-    @Override
-    public String toString() {
-        return "Tienda{" +
-                "idTienda=" + idTienda +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", ubicacion='" + ubicacion + '\'' +
-                ", imagen='" + imagen + '\'' +
-                ", qrImagen='" + qrImagen + '\'' +
-                ", sede=" + (sede != null ? sede.getNombreSede() : "No asignada") +
-                ", usuario=" + (usuario != null ? usuario.getId() : "No asignada") +
-                '}';
-    }
 }

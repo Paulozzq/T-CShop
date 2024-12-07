@@ -5,7 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/Util/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/PedidoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ProductoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/DetallePedidoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/PedidoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/ReviewDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/DetallePedidoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/DetallePedidoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/PedidoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/PedidoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ProductoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ProductoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ReviewServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/UsuarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/UsuarioServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/stripe/StripeClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AfiliadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AfiliadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/TiendaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/TiendaDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/DetallePedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/DetallePedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/ImagenProducto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Tienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/dto/TiendaDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/dto/TiendaDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/daos/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/daos/ReviewRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Carrera.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Carrera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/DetallePedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/DetallePedido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/ImagenProducto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Pedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Pedido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Producto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Tienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Tienda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,11 +135,14 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.tcshop.tcshopspring.dto" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -105,8 +154,9 @@
     <configuration name="TcshopSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
         <env name="API_KEY_SG" value="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" />
-        <env name="DATABASE_URL" value="jdbc:mysql://localhost:3306/tcs" />
+        <env name="DATABASE_URL" value="jdbc:mysql://localhost:3306/tcs2" />
         <env name="SG_USERNAME" value="apikey" />
+        <env name="API_KEY_JWT" value="u6Y7dhHZ12PqojZG5q8TG8LxmFpaPb1HFfBhbSw/k8FjEDG11X1y7lM1Q2Iq+YBT" />
       </envs>
       <module name="TcshopSpring" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tcshop.tcshopspring.TcshopSpringApplication" />
@@ -152,7 +202,7 @@
       <workItem from="1731549106927" duration="10116000" />
       <workItem from="1732060247459" duration="10144000" />
       <workItem from="1732111308587" duration="2553000" />
-      <workItem from="1732306086833" duration="36697000" />
+      <workItem from="1732306086833" duration="37095000" />
     </task>
     <servers />
   </component>

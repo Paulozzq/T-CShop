@@ -87,7 +87,7 @@ public class Usuario {
     }
 
     public @NotNull Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(@NotNull Integer id) {

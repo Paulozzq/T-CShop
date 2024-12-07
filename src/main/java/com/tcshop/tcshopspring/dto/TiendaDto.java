@@ -8,8 +8,21 @@ public class TiendaDto {
     private String imagen;
     private String qrImagen;
     private SedeDto sede;
+    private UsuarioDto usuario;
 
     public TiendaDto() {
+    }
+
+
+    public TiendaDto(String nombre, Integer idTienda, String descripcion, String ubicacion, String imagen, String qrImagen, UsuarioDto usuario, SedeDto sede) {
+        this.nombre = nombre;
+        this.idTienda = idTienda;
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.imagen = imagen;
+        this.qrImagen = qrImagen;
+        this.usuario = usuario;
+        this.sede = sede;
     }
 
     public Integer getIdTienda() {
@@ -66,5 +79,13 @@ public class TiendaDto {
 
     public void setSede(SedeDto sede) {
         this.sede = sede;
+    }
+
+    public UsuarioDto getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDto usuario) {
+        this.usuario = usuario;
     }
 }
