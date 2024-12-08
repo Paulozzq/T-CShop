@@ -2,15 +2,21 @@ package com.tcshop.tcshopspring.controllers;
 
 import com.stripe.model.Charge;
 import com.tcshop.tcshopspring.dto.ProductoDto;
-import com.tcshop.tcshopspring.dto.TiendaDto;
+import com.tcshop.tcshopspring.modelo.daos.CategoriaRepository;
+import com.tcshop.tcshopspring.modelo.daos.ProductoRepository;
+import com.tcshop.tcshopspring.modelo.daos.TiendaRepository;
 import com.tcshop.tcshopspring.modelo.entidades.Categoria;
 import com.tcshop.tcshopspring.modelo.entidades.Producto;
+import com.tcshop.tcshopspring.modelo.entidades.Tienda;
+import com.tcshop.tcshopspring.servicios.CloudinaryServiceImpl;
 import com.tcshop.tcshopspring.servicios.ProductoService;
 import com.tcshop.tcshopspring.stripe.StripeClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -22,68 +28,90 @@ public class ProductoController {
 
     private final ProductoService productoService;
     private final StripeClient stripeClient;
+    private final CategoriaRepository categoriaRepository;
+    private final TiendaRepository tiendaRepository;
+    private final ProductoRepository productoRepository;
+    private final CloudinaryServiceImpl cloudinaryServiceImpl;
 
-    public ProductoController(ProductoService productoService, StripeClient stripeClient) {
+    public ProductoController(ProductoService productoService, StripeClient stripeClient, CategoriaRepository categoriaRepository, TiendaRepository tiendaRepository, ProductoRepository productoRepository, CloudinaryServiceImpl cloudinaryServiceImpl) {
         this.productoService = productoService;
         this.stripeClient = stripeClient;
+        this.categoriaRepository = categoriaRepository;
+        this.tiendaRepository = tiendaRepository;
+        this.productoRepository = productoRepository;
+        this.cloudinaryServiceImpl = cloudinaryServiceImpl;
     }
 
     @PostMapping
-    public ResponseEntity<ProductoDto> createProducto(@RequestBody Producto producto) {
-        // Guardar el nuevo producto
-        Producto newProducto = productoService.save(producto);
+    public ResponseEntity<ProductoDto> crear(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("precio") Double precio,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("tiendaId") Integer tiendaId) throws IOException {
 
-        // Crear y mapear el ProductoDto
-        ProductoDto productoDto = new ProductoDto();
-        productoDto.setIdProducto(newProducto.getIdProducto());
-        productoDto.setNombre(newProducto.getNombre());
-        productoDto.setDescripcion(newProducto.getDescripcion());
-        productoDto.setPrecio(newProducto.getPrecio());
-        productoDto.setStock(newProducto.getStock());
+        Map<String, String> uploadResult = cloudinaryServiceImpl.upload(file);
+        String urlImagen = uploadResult.get("url");
 
-        // Mapeo de Tienda
-        TiendaDto tiendaDto = new TiendaDto();
-        tiendaDto.setIdTienda(newProducto.getTienda().getIdTienda());
-        tiendaDto.setNombre(newProducto.getTienda().getNombre());
-        tiendaDto.setDescripcion(newProducto.getTienda().getDescripcion());
-        tiendaDto.setUbicacion(newProducto.getTienda().getUbicacion());
-        tiendaDto.setImagen(newProducto.getTienda().getImagen());
+        Categoria categoria = categoriaRepository.findById(categoriaId).orElseThrow(() -> new RuntimeException("Categoria no encontrada"));
+        Optional<Tienda> optionalTienda = tiendaRepository.findById(tiendaId);
+        Tienda tienda = optionalTienda.orElseThrow(() -> new RuntimeException("Tienda no encontrada"));
 
-        // Establecer Tienda en ProductoDto
-        productoDto.setTienda(tiendaDto);
+        Producto producto = new Producto();
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        producto.setPrecio(precio);
+        producto.setStock(stock);
+        producto.setCategoria(categoria);
+        producto.setTienda(tienda);
+        producto.setImagenes(urlImagen);
 
-        // Mapeo de Categoria (sin usar CategoriaDto)
-        Categoria categoria = newProducto.getCategoria(); // Usamos directamente la entidad Categoria
-        productoDto.setCategoria(categoria);
+        productoRepository.save(producto);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(productoDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductoDto> updateProducto(@PathVariable Integer id, @RequestBody Producto producto) {
-        Producto updatedProducto = productoService.update(id, producto);
+    public ResponseEntity<ProductoDto> actualizarProducto(
+            @PathVariable Integer id,
+            @RequestParam(value = "file", required = false) MultipartFile file,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("precio") Double precio,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("tiendaId") Integer tiendaId) throws IOException {
 
-        ProductoDto productoDto = new ProductoDto();
-        productoDto.setIdProducto(updatedProducto.getIdProducto());
-        productoDto.setNombre(updatedProducto.getNombre());
-        productoDto.setDescripcion(updatedProducto.getDescripcion());
-        productoDto.setPrecio(updatedProducto.getPrecio());
-        productoDto.setStock(updatedProducto.getStock());
+        Producto productoExistente = productoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
-        TiendaDto tiendaDto = new TiendaDto();
-        tiendaDto.setIdTienda(updatedProducto.getTienda().getIdTienda());
-        tiendaDto.setNombre(updatedProducto.getTienda().getNombre());
-        tiendaDto.setDescripcion(updatedProducto.getTienda().getDescripcion());
-        tiendaDto.setUbicacion(updatedProducto.getTienda().getUbicacion());
-        tiendaDto.setImagen(updatedProducto.getTienda().getImagen());
+        if (file != null) {
+            Map<String, String> uploadResult = cloudinaryServiceImpl.upload(file);
+            String urlImagen = uploadResult.get("url");
+            productoExistente.setImagenes(urlImagen);
+        }
 
-        productoDto.setTienda(tiendaDto);
+        Categoria categoria = categoriaRepository.findById(categoriaId)
+                .orElseThrow(() -> new RuntimeException("Categoria no encontrada"));
+        Tienda tienda = tiendaRepository.findById(tiendaId)
+                .orElseThrow(() -> new RuntimeException("Tienda no encontrada"));
 
-        Categoria categoria = updatedProducto.getCategoria(); // Usamos directamente la entidad Categoria
-        productoDto.setCategoria(categoria);
+        productoExistente.setIdProducto(id);
+        productoExistente.setNombre(nombre);
+        productoExistente.setDescripcion(descripcion);
+        productoExistente.setPrecio(precio);
+        productoExistente.setStock(stock);
+        productoExistente.setCategoria(categoria);
+        productoExistente.setTienda(tienda);
 
-        return ResponseEntity.ok(productoDto);
+        productoRepository.save(productoExistente);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProducto(@PathVariable Integer id) {
@@ -91,32 +119,6 @@ public class ProductoController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductoDto> getProductoById(@PathVariable Integer id) {
-        Optional<Producto> producto = productoService.findById(id);
-
-        ProductoDto productoDto = new ProductoDto();
-        productoDto.setIdProducto(producto.get().getIdProducto());
-        productoDto.setNombre(producto.get().getNombre());
-        productoDto.setDescripcion(producto.get().getDescripcion());
-        productoDto.setPrecio(producto.get().getPrecio());
-        productoDto.setStock(producto.get().getStock());
-        productoDto.setImagen(producto.get().getImagenes());
-
-
-        TiendaDto tiendaDto = new TiendaDto();
-        tiendaDto.setIdTienda(producto.get().getTienda().getIdTienda());
-        tiendaDto.setNombre(producto.get().getTienda().getNombre());
-        tiendaDto.setDescripcion(producto.get().getTienda().getDescripcion());
-        tiendaDto.setUbicacion(producto.get().getTienda().getUbicacion());
-        tiendaDto.setImagen(producto.get().getTienda().getImagen());
-
-        productoDto.setTienda(tiendaDto);
-        Categoria categoria = producto.get().getCategoria();
-        productoDto.setCategoria(categoria);
-
-        return ResponseEntity.ok(productoDto);
-    }
 
     @GetMapping
     public ResponseEntity<List<ProductoDto>> getAllProductos() {
@@ -129,12 +131,13 @@ public class ProductoController {
             productoDto.setPrecio(producto.getPrecio());
             productoDto.setStock(producto.getStock());
 
-            TiendaDto tiendaDto = new TiendaDto();
+            Tienda tiendaDto = new Tienda();
             tiendaDto.setIdTienda(producto.getTienda().getIdTienda());
             tiendaDto.setNombre(producto.getTienda().getNombre());
             tiendaDto.setDescripcion(producto.getTienda().getDescripcion());
             tiendaDto.setUbicacion(producto.getTienda().getUbicacion());
             tiendaDto.setImagen(producto.getTienda().getImagen());
+            tiendaDto.setQrImagen(producto.getTienda().getQrImagen());
 
             productoDto.setTienda(tiendaDto);
 
@@ -147,6 +150,44 @@ public class ProductoController {
 
         return ResponseEntity.ok(productoDtos);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductoDto> getProductoById(@PathVariable Integer id) {
+        Optional<Producto> productoOptional = productoService.findById(id);
+
+        if (!productoOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        Producto producto = productoOptional.get();
+        ProductoDto productoDto = new ProductoDto();
+        productoDto.setIdProducto(producto.getIdProducto());
+        productoDto.setNombre(producto.getNombre());
+        productoDto.setDescripcion(producto.getDescripcion());
+        productoDto.setPrecio(producto.getPrecio());
+        productoDto.setStock(producto.getStock());
+        productoDto.setImagen(producto.getImagenes());
+
+
+        Tienda tiendaDto = new Tienda();
+        tiendaDto.setIdTienda(producto.getTienda().getIdTienda());
+        tiendaDto.setNombre(producto.getTienda().getNombre());
+        tiendaDto.setDescripcion(producto.getTienda().getDescripcion());
+        tiendaDto.setUbicacion(producto.getTienda().getUbicacion());
+        tiendaDto.setImagen(producto.getTienda().getImagen());
+        tiendaDto.setQrImagen(producto.getTienda().getQrImagen());
+
+        productoDto.setTienda(tiendaDto);
+
+        Categoria categoria = producto.getCategoria();
+        productoDto.setCategoria(categoria);
+
+        return ResponseEntity.ok(productoDto);
+    }
+
+
+
+
     @PostMapping("/pago/{idProducto}")
     public ResponseEntity<String> realizarPago(@PathVariable Integer idProducto, @RequestBody Map<String, Object> payload) {
         Optional<Producto> productoOptional = productoService.findById(idProducto);

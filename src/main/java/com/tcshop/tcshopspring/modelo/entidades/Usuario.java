@@ -29,7 +29,6 @@ public class Usuario {
     @Column(name = "password", length = 300)
     private String password;
 
-    // Relación con Rol
     @NotNull
     @ManyToOne
     @JoinColumn(name = "rol_id", nullable = false)

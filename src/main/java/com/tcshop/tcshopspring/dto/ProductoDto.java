@@ -1,8 +1,10 @@
 package com.tcshop.tcshopspring.dto;
 
 import com.tcshop.tcshopspring.modelo.entidades.Categoria;
+import com.tcshop.tcshopspring.modelo.entidades.Tienda;
 
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 public class ProductoDto {
     private Integer idProducto;
@@ -12,7 +14,7 @@ public class ProductoDto {
     private Integer stock;
     private String imagen;
     private Categoria categoria;
-    private TiendaDto tienda;
+    private Tienda tienda;
 
     public ProductoDto(Integer idProducto, @NotNull String nombre, @NotNull String descripcion, @NotNull Double precio, @NotNull Integer stock, @NotNull String imagenes, Categoria categoria, TiendaDto tiendaDTO) {
 
@@ -78,11 +80,14 @@ public class ProductoDto {
         this.categoria = categoria;
     }
 
-    public TiendaDto getTienda() {
+    public Tienda getTienda() {
         return tienda;
     }
 
-    public void setTienda(TiendaDto tienda) {
+    public void setTienda(Tienda tienda) {
         this.tienda = tienda;
+    }
+
+    public void setTienda(Optional<Tienda> tienda) {
     }
 }

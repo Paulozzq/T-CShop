@@ -2,7 +2,6 @@ package com.tcshop.tcshopspring.controllers;
 
 import com.tcshop.tcshopspring.dto.ProductoDto;
 import com.tcshop.tcshopspring.dto.ReviewDto;
-import com.tcshop.tcshopspring.dto.TiendaDto;
 import com.tcshop.tcshopspring.dto.UsuarioDto;
 import com.tcshop.tcshopspring.modelo.entidades.Producto;
 import com.tcshop.tcshopspring.modelo.entidades.Review;
@@ -82,7 +81,7 @@ public class ReviewController {
         productoDto.setStock(producto.getStock());
 
         Tienda tienda = producto.getTienda();
-        TiendaDto tiendaDto = new TiendaDto();
+        Tienda tiendaDto = new Tienda();
         log.info(String.valueOf(tienda.getIdTienda()));
         tiendaDto.setIdTienda(tienda.getIdTienda());
         tiendaDto.setNombre(tienda.getNombre());

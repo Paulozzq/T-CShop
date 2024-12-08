@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api")
 public class AuthController {
@@ -45,9 +48,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> loginUser(@RequestBody LoginDto loginDto) {
-        Usuario usuario = loginService.loginUser(loginDto);
-        System.out.println("Email: " + loginDto.getIdentifier());
-        return ResponseEntity.ok(usuario);
+    public ResponseEntity<Map<String, String>> loginUser(@RequestBody LoginDto loginDto) {
+        String token = loginService.loginUser(loginDto);
+        return ResponseEntity.ok(Collections.singletonMap("token", token));
     }
 }

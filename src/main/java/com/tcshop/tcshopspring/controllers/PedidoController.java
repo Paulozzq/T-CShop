@@ -2,10 +2,7 @@ package com.tcshop.tcshopspring.controllers;
 
 import com.stripe.model.Charge;
 import com.tcshop.tcshopspring.dto.*;
-import com.tcshop.tcshopspring.modelo.entidades.DetallePedido;
-import com.tcshop.tcshopspring.modelo.entidades.Pedido;
-import com.tcshop.tcshopspring.modelo.entidades.Producto;
-import com.tcshop.tcshopspring.modelo.entidades.Usuario;
+import com.tcshop.tcshopspring.modelo.entidades.*;
 import com.tcshop.tcshopspring.servicios.DetallePedidoService;
 import com.tcshop.tcshopspring.servicios.PedidoService;
 import com.tcshop.tcshopspring.servicios.ProductoService;
@@ -113,7 +110,7 @@ public class PedidoController {
                         productoDto.setImagen(detalle.getProducto().getImagenes());
                         productoDto.setCategoria(detalle.getProducto().getCategoria());
 
-                        TiendaDto tiendaDto = new TiendaDto();
+                        Tienda tiendaDto = new Tienda();
                         tiendaDto.setIdTienda(detalle.getProducto().getTienda().getIdTienda());
                         tiendaDto.setNombre(detalle.getProducto().getTienda().getNombre());
 

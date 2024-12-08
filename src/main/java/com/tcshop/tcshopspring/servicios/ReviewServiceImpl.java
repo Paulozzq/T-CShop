@@ -81,7 +81,6 @@ public class ReviewServiceImpl implements ReviewService {
         tiendaDto.setDescripcion(tienda.getDescripcion());
         tiendaDto.setUbicacion(tienda.getUbicacion());
         tiendaDto.setImagen(tienda.getImagen());
-        productoDto.setTienda(tiendaDto);
 
         productoDto.setCategoria(producto.getCategoria());
 
