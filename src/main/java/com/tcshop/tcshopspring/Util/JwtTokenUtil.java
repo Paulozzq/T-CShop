@@ -20,6 +20,11 @@ public class JwtTokenUtil {
         return extractClaim(token, Claims::getSubject);
     }
 
+    public String extractEmail(String token) {
+        final Claims claims = extractAllClaims(token);
+        return claims.get("email", String.class);
+    }
+
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -31,8 +36,14 @@ public class JwtTokenUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("username", userDetails.getUsername());
+
+        String email = userDetails.getUsername();
+        claims.put("email", email);
+
         return createToken(claims, userDetails.getUsername());
     }
+
 
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))

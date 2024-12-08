@@ -2,7 +2,7 @@ package com.tcshop.tcshopspring.servicios;
 
 import com.tcshop.tcshopspring.modelo.daos.UsuarioRepository;
 import com.tcshop.tcshopspring.modelo.entidades.Usuario;
-import org.springframework.security.core.userdetails.User;
+import com.tcshop.tcshopspring.security.CustomUserDetails;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,7 +24,12 @@ public class JwtUserDetailsService implements UserDetailsService {
         Usuario usuario = usuarioRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
 
-        return new User(usuario.getEmail(), usuario.getPassword(),
-                Collections.singleton(usuario.getRol()));
+        // Devolver un CustomUserDetails con el username, email, contraseña y roles
+        return new CustomUserDetails(
+                usuario.getUsername(),
+                usuario.getEmail(),
+                usuario.getPassword(),
+                Collections.singleton(usuario.getRol()) // Aquí asumimos que un usuario tiene un solo rol
+        );
     }
 }

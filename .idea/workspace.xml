@@ -5,44 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/config/CloudinaryConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ImagenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/HorarioDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ImagenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Imagen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/CloudinaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/CloudinaryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/security/CustomUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tcshop/tcshopspring/Util/JwtTokenUtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/Util/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/Util/JwtTokenUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ProductoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/TiendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/TiendaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/ProductoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/dto/ProductoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Rol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/entidades/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/security/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/security/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/JwtUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/JwtUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/UsuarioServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/Util/JwtTokenUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/Util/JwtTokenUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/PedidoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/ProductoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/ProductoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/ReviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/TiendaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/TiendaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/dto/ProductoDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/dto/ProductoDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Rol.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Rol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/modelo/entidades/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/ReviewServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/ReviewServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/HorarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/controllers/HorarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/security/JwtRequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/security/JwtRequestFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/JwtUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/JwtUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tcshop/tcshopspring/servicios/UsuarioServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -104,32 +84,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.TcshopSpringApplication.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TcshopSpringApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;v1&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User_001/OneDrive/Documentos/Tecsup/Desarrollo_web/TcshopSpring - copia&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TcshopSpringApplication.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.JwtRequestFilterTest.doFilterInternal_WithValidToken_ShouldSetAuthentication.executor": "Run",
+    "JUnit.JwtRequestFilterTest.executor": "Run",
+    "JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more.executor": "Run",
+    "JUnit.JwtTokenUtilTest.executor": "Run",
+    "JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate.executor": "Run",
+    "JUnit.JwtTokenUtilTest.extractUsername.executor": "Run",
+    "JUnit.JwtTokenUtilTest.validateToken.executor": "Run",
+    "JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.TcshopSpringApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "v1",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User_001/OneDrive/Documentos/Tecsup/Desarrollo_web/TcshopSpring - copia",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.tcshop.tcshopspring.dto" />
@@ -138,17 +126,95 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.tcshop.tcshopspring.Util" />
+      <recent name="com.tcshop.tcshopspring.security" />
       <recent name="com.tcshop.tcshopspring.controllers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.TcshopSpringApplication">
+    <configuration name="JwtTokenUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TcshopSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tcshop.tcshopspring.Util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tcshop.tcshopspring.Util" />
+      <option name="MAIN_CLASS_NAME" value="com.tcshop.tcshopspring.Util.JwtTokenUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TcshopSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tcshop.tcshopspring.Util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tcshop.tcshopspring.Util" />
+      <option name="MAIN_CLASS_NAME" value="com.tcshop.tcshopspring.Util.JwtTokenUtilTest" />
+      <option name="METHOD_NAME" value="extractExpiration_ShouldReturnCorrectExpirationDate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TcshopSpring" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="com.tcshop.tcshopspring.Util.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername" />
+        <pattern testClass="com.tcshop.tcshopspring.Util.JwtTokenUtilTest,validateToken_ShouldReturnTrueWhenTokenIsValid" />
+        <pattern testClass="com.tcshop.tcshopspring.Util.JwtTokenUtilTest,getAuthentication_ShouldReturnAuthenticationWhenTokenIsValid" />
+        <pattern testClass="com.tcshop.tcshopspring.Util.JwtTokenUtilTest,extractExpiration_ShouldReturnCorrectExpirationDate" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTokenUtilTest.validateToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TcshopSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tcshop.tcshopspring.Util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tcshop.tcshopspring.Util" />
+      <option name="MAIN_CLASS_NAME" value="com.tcshop.tcshopspring.Util.JwtTokenUtilTest" />
+      <option name="METHOD_NAME" value="validateToken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TcshopSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tcshop.tcshopspring.Util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tcshop.tcshopspring.Util" />
+      <option name="MAIN_CLASS_NAME" value="com.tcshop.tcshopspring.Util.JwtTokenUtilTest" />
+      <option name="METHOD_NAME" value="validateToken_ShouldReturnFalseWhenTokenIsInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TcshopSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
         <env name="API_KEY_JWT" value="u6Y7dhHZ12PqojZG5q8TG8LxmFpaPb1HFfBhbSw/k8FjEDG11X1y7lM1Q2Iq+YBT" />
-        <env name="API_KEY_SG" value="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" />
+        <env name="API_KEY_SG" value="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" />
         <env name="DATABASE_URL" value="jdbc:mysql://localhost:3306/tcs2" />
-        <env name="SG_USERNAME" value="apikey" />
         <env name="jwt.expiration" value="86400000" />
+        <env name="SG_USERNAME" value="apikey" />
       </envs>
       <module name="TcshopSpring" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tcshop.tcshopspring.TcshopSpringApplication" />
@@ -156,6 +222,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.JwtTokenUtilTest" />
+      <item itemvalue="JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more" />
+      <item itemvalue="JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate" />
+      <item itemvalue="JUnit.JwtTokenUtilTest.validateToken" />
+      <item itemvalue="JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid" />
+      <item itemvalue="Spring Boot.TcshopSpringApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.JwtTokenUtilTest.validateToken" />
+        <item itemvalue="JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid" />
+        <item itemvalue="JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more" />
+        <item itemvalue="JUnit.JwtTokenUtilTest" />
+        <item itemvalue="JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -195,7 +278,7 @@
       <workItem from="1732060247459" duration="10144000" />
       <workItem from="1732111308587" duration="2553000" />
       <workItem from="1732306086833" duration="37095000" />
-      <workItem from="1733604193994" duration="29349000" />
+      <workItem from="1733604193994" duration="46306000" />
     </task>
     <servers />
   </component>
