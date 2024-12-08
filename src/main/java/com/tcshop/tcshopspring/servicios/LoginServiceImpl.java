@@ -33,10 +33,16 @@ public class LoginServiceImpl implements LoginService {
         Usuario usuario = optionalUser.orElseThrow(() ->
                 new RuntimeException("Usuario no encontrado"));
 
+
+
         if (passwordEncoder.matches(loginDto.getPassword(), usuario.getPassword())) {
-            UserDetails userDetails = new User(usuario.getUsername(), usuario.getPassword(),
-                    Collections.singletonList((org.springframework.security.core.GrantedAuthority) usuario.getRol()));
-            return jwtTokenUtil.generateToken(userDetails);
+            if(usuario.getEnable()) {
+                UserDetails userDetails = new User(usuario.getUsername(), usuario.getPassword(),
+                        Collections.singletonList((org.springframework.security.core.GrantedAuthority) usuario.getRol()));
+                return jwtTokenUtil.generateToken(userDetails);
+            } else{
+                throw new RuntimeException("Verificar Email");
+            }
         } else {
             throw new RuntimeException("Contraseña inválida");
         }
