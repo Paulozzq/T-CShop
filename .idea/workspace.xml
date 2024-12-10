@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/controllers/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/modelo/daos/ProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ProductoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tcshop/tcshopspring/servicios/ProductoServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +52,10 @@
     &quot;accountId&quot;: &quot;f4476d4b-6287-4d93-9a3d-8833abdcd270&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -75,46 +75,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TcshopSpringApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Docker.Dockerfile.executor": "Run",
-    "JUnit.JwtRequestFilterTest.doFilterInternal_WithValidToken_ShouldSetAuthentication.executor": "Run",
-    "JUnit.JwtRequestFilterTest.executor": "Run",
-    "JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more.executor": "Run",
-    "JUnit.JwtTokenUtilTest.executor": "Run",
-    "JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate.executor": "Run",
-    "JUnit.JwtTokenUtilTest.extractUsername.executor": "Run",
-    "JUnit.JwtTokenUtilTest.validateToken.executor": "Run",
-    "JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid.executor": "Run",
-    "Maven.TcshopSpring [compile].executor": "Run",
-    "Maven.TcshopSpring [package].executor": "Run",
-    "Maven.TcshopSpring [validate].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.TcshopSpringApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "v2",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/usuario/IdeaProjects/TcshopSpring - copia - copia - copia - copia",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TcshopSpringApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtRequestFilterTest.doFilterInternal_WithValidToken_ShouldSetAuthentication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtRequestFilterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtTokenUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtTokenUtilTest.extractUsername.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtTokenUtilTest.validateToken.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TcshopSpring [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TcshopSpring [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TcshopSpring [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TcshopSpringApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/usuario/IdeaProjects/TcshopSpring - copia - copia - copia - copia&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.tcshop.tcshopspring.dto" />
@@ -128,7 +128,7 @@
       <recent name="com.tcshop.tcshopspring.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Dockerfile">
+  <component name="RunManager" selected="Spring Boot.TcshopSpringApplication">
     <configuration name="JwtTokenUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TcshopSpring" />
       <extension name="coverage">
@@ -278,7 +278,8 @@
       <workItem from="1733604193994" duration="52165000" />
       <workItem from="1733707893411" duration="46442000" />
       <workItem from="1733809041119" duration="6157000" />
-      <workItem from="1733819431246" duration="2759000" />
+      <workItem from="1733819431246" duration="3733000" />
+      <workItem from="1733845462903" duration="1901000" />
     </task>
     <servers />
   </component>

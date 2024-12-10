@@ -254,4 +254,34 @@ public class ProductoController {
 
         return ResponseEntity.ok(productoDtos);
     }
+    @GetMapping("/categoria/{idCategoria}")
+    public ResponseEntity<List<ProductoDto>> getProductosByCategoria(@PathVariable Integer idCategoria) {
+        List<Producto> productos = productoService.findByCategoria(idCategoria);
+
+        if (productos.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        List<ProductoDto> productoDtos = productos.stream().map(producto -> {
+            ProductoDto productoDto = new ProductoDto();
+            productoDto.setIdProducto(producto.getIdProducto());
+            productoDto.setNombre(producto.getNombre());
+            productoDto.setDescripcion(producto.getDescripcion());
+            productoDto.setPrecio(producto.getPrecio());
+            productoDto.setStock(producto.getStock());
+            productoDto.setImagen(producto.getImagenes());
+
+            if (producto.getCategoria() != null) {
+                Categoria categoriaDto = new Categoria();
+                categoriaDto.setIdCategoria(producto.getCategoria().getIdCategoria());
+                categoriaDto.setNombreCategoria(producto.getCategoria().getNombreCategoria());
+                productoDto.setCategoria(categoriaDto);
+            }
+
+            return productoDto;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(productoDtos);
+    }
+
 }

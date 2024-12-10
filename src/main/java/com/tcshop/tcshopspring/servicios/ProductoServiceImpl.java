@@ -70,7 +70,7 @@ public class ProductoServiceImpl implements ProductoService{
 
     @Override
     public List<Producto> findByCategoria(Integer idCategoria) {
-        return null;
+        return productoRepository.findByCategoriaIdCategoria(idCategoria);
     }
 
     @Override
