@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc53daef-5f39-4a95-9856-50c074792b6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +28,7 @@
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -49,6 +52,10 @@
     &quot;accountId&quot;: &quot;f4476d4b-6287-4d93-9a3d-8833abdcd270&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -72,6 +79,7 @@
   "keyToString": {
     "Application.TcshopSpringApplication.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.Dockerfile.executor": "Run",
     "JUnit.JwtRequestFilterTest.doFilterInternal_WithValidToken_ShouldSetAuthentication.executor": "Run",
     "JUnit.JwtRequestFilterTest.executor": "Run",
     "JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more.executor": "Run",
@@ -80,7 +88,9 @@
     "JUnit.JwtTokenUtilTest.extractUsername.executor": "Run",
     "JUnit.JwtTokenUtilTest.validateToken.executor": "Run",
     "JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid.executor": "Run",
+    "Maven.TcshopSpring [compile].executor": "Run",
     "Maven.TcshopSpring [package].executor": "Run",
+    "Maven.TcshopSpring [validate].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -118,7 +128,7 @@
       <recent name="com.tcshop.tcshopspring.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TcshopSpringApplication">
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="JwtTokenUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TcshopSpring" />
       <extension name="coverage">
@@ -130,22 +140,6 @@
       <option name="PACKAGE_NAME" value="com.tcshop.tcshopspring.Util" />
       <option name="MAIN_CLASS_NAME" value="com.tcshop.tcshopspring.Util.JwtTokenUtilTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TcshopSpring" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tcshop.tcshopspring.Util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tcshop.tcshopspring.Util" />
-      <option name="MAIN_CLASS_NAME" value="com.tcshop.tcshopspring.Util.JwtTokenUtilTest" />
-      <option name="METHOD_NAME" value="extractExpiration_ShouldReturnCorrectExpirationDate" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -200,7 +194,7 @@
         <env name="API_KEY_JWT" value="u6Y7dhHZ12PqojZG5q8TG8LxmFpaPb1HFfBhbSw/k8FjEDG11X1y7lM1Q2Iq+YBT" />
         <env name="API_KEY_SG" value="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" />
         <env name="DATABASE_PASSWORD" value="Tcshop12345678" />
-        <env name="DATABASE_URL" value="jdbc:mysql://localhost:3306/tcs3" />
+        <env name="DATABASE_URL" value="mysql://localhost:3306/tcs3" />
         <env name="DATABASE_USER" value="root" />
         <env name="jwt.expiration" value="86400000" />
         <env name="SG_USERNAME" value="apikey" />
@@ -211,25 +205,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="JUnit.JwtTokenUtilTest" />
       <item itemvalue="JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more" />
-      <item itemvalue="JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate" />
       <item itemvalue="JUnit.JwtTokenUtilTest.validateToken" />
       <item itemvalue="JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid" />
       <item itemvalue="Spring Boot.TcshopSpringApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="JUnit.JwtTokenUtilTest.validateToken" />
         <item itemvalue="JUnit.JwtTokenUtilTest.validateToken_ShouldReturnFalseWhenTokenIsInvalid" />
         <item itemvalue="JUnit.JwtTokenUtilTest,extractUsername_ShouldReturnCorrectUsername and 3 more" />
         <item itemvalue="JUnit.JwtTokenUtilTest" />
-        <item itemvalue="JUnit.JwtTokenUtilTest.extractExpiration_ShouldReturnCorrectExpirationDate" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +277,8 @@
       <workItem from="1732306086833" duration="37095000" />
       <workItem from="1733604193994" duration="52165000" />
       <workItem from="1733707893411" duration="46442000" />
-      <workItem from="1733809041119" duration="5745000" />
+      <workItem from="1733809041119" duration="6157000" />
+      <workItem from="1733819431246" duration="2759000" />
     </task>
     <servers />
   </component>
