@@ -29,7 +29,6 @@ public class Usuario {
     @Column(name = "password", length = 300)
     private String password;
 
-    // Relación con Rol
     @NotNull
     @ManyToOne
     @JoinColumn(name = "rol_id", nullable = false)
@@ -54,17 +53,16 @@ public class Usuario {
 
     // Relaciones con otras entidades
     @NotNull
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sede_id", nullable = false)
     private Sede sede;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "departamento_id", nullable = false)
     private Departamento departamento;
-
     @NotNull
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrera_id", nullable = false)
     private Carrera carrera;
 
@@ -88,7 +86,7 @@ public class Usuario {
     }
 
     public @NotNull Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(@NotNull Integer id) {

@@ -1,11 +1,13 @@
 package com.tcshop.tcshopspring.modelo.entidades;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "roles")
-public class Rol {
+public class Rol implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +39,11 @@ public class Rol {
 
     public void setNombreRol(@NotNull String nombreRol) {
         this.nombreRol = nombreRol;
+    }
+
+    @Override
+    public String getAuthority() {
+        return "ROLE_" + nombreRol.toUpperCase();
     }
 
     @Override
