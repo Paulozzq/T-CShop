@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.tcshop.tcshopspring.Util.JwtTokenUtilTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.105 s <<< FAILURE! -- in com.tcshop.tcshopspring.Util.JwtTokenUtilTest
+com.tcshop.tcshopspring.Util.JwtTokenUtilTest.validateToken -- Time elapsed: 0.026 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.userdetails.UserDetailsService.loadUserByUsername(String)" because "this.userDetailsService" is null
+	at com.tcshop.tcshopspring.Util.JwtTokenUtilTest.validateToken(JwtTokenUtilTest.java:32)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

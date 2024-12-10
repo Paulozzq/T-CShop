@@ -5,7 +5,6 @@ import com.tcshop.tcshopspring.dto.ReviewDto;
 import com.tcshop.tcshopspring.dto.UsuarioDto;
 import com.tcshop.tcshopspring.modelo.entidades.Producto;
 import com.tcshop.tcshopspring.modelo.entidades.Review;
-import com.tcshop.tcshopspring.modelo.entidades.Tienda;
 import com.tcshop.tcshopspring.servicios.ReviewService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api/reviews")
 public class ReviewController {
@@ -79,16 +79,6 @@ public class ReviewController {
         productoDto.setDescripcion(producto.getDescripcion());
         productoDto.setPrecio(producto.getPrecio());
         productoDto.setStock(producto.getStock());
-
-        Tienda tienda = producto.getTienda();
-        Tienda tiendaDto = new Tienda();
-        log.info(String.valueOf(tienda.getIdTienda()));
-        tiendaDto.setIdTienda(tienda.getIdTienda());
-        tiendaDto.setNombre(tienda.getNombre());
-        tiendaDto.setDescripcion(tienda.getDescripcion());
-        tiendaDto.setUbicacion(tienda.getUbicacion());
-        tiendaDto.setImagen(tienda.getImagen());
-        productoDto.setTienda(tiendaDto);
 
         productoDto.setCategoria(producto.getCategoria());
 

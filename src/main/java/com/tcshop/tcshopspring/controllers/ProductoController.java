@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api/productos")
 public class ProductoController {
@@ -130,6 +131,8 @@ public class ProductoController {
             productoDto.setDescripcion(producto.getDescripcion());
             productoDto.setPrecio(producto.getPrecio());
             productoDto.setStock(producto.getStock());
+            productoDto.setImagen(producto.getImagenes());
+            productoDto.setCategoria(producto.getCategoria());
 
             Tienda tiendaDto = new Tienda();
             tiendaDto.setIdTienda(producto.getTienda().getIdTienda());
@@ -167,7 +170,7 @@ public class ProductoController {
         productoDto.setPrecio(producto.getPrecio());
         productoDto.setStock(producto.getStock());
         productoDto.setImagen(producto.getImagenes());
-
+        productoDto.setCategoria(producto.getCategoria());
 
         Tienda tiendaDto = new Tienda();
         tiendaDto.setIdTienda(producto.getTienda().getIdTienda());
@@ -205,5 +208,50 @@ public class ProductoController {
         } else {
             return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/sede/{idSede}")
+    public ResponseEntity<List<ProductoDto>> getProductosBySede(@PathVariable Integer idSede) {
+        List<ProductoDto> productos = productoService.listarProductosPorSede(idSede);
+        if (productos.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(productos);
+    }
+
+    @GetMapping("/tienda/{idTienda}")
+    public ResponseEntity<List<ProductoDto>> getProductosByTienda(@PathVariable Integer idTienda) {
+        List<Producto> productos = productoService.findByTienda(idTienda);
+
+        if (productos.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        List<ProductoDto> productoDtos = productos.stream().map(producto -> {
+            ProductoDto productoDto = new ProductoDto();
+            productoDto.setIdProducto(producto.getIdProducto());
+            productoDto.setNombre(producto.getNombre());
+            productoDto.setDescripcion(producto.getDescripcion());
+            productoDto.setPrecio(producto.getPrecio());
+            productoDto.setStock(producto.getStock());
+            productoDto.setImagen(producto.getImagenes());
+
+            Tienda tienda = producto.getTienda();
+            if (tienda != null) {
+                Tienda tiendaEntity = new Tienda();
+                tiendaEntity.setIdTienda(tienda.getIdTienda());
+                tiendaEntity.setNombre(tienda.getNombre());
+                tiendaEntity.setDescripcion(tienda.getDescripcion());
+                tiendaEntity.setUbicacion(tienda.getUbicacion());
+                tiendaEntity.setImagen(tienda.getImagen());
+                tiendaEntity.setQrImagen(tienda.getQrImagen());
+
+                productoDto.setTienda(tiendaEntity);
+            }
+
+            return productoDto;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(productoDtos);
     }
 }

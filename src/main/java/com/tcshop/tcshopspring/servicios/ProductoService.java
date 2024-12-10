@@ -1,5 +1,6 @@
 package com.tcshop.tcshopspring.servicios;
 
+import com.tcshop.tcshopspring.dto.ProductoDto;
 import com.tcshop.tcshopspring.modelo.entidades.Producto;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface ProductoService {
     List<Producto> findAll();
     List<Producto> findByTienda(Integer tiendaId);
     List<Producto> findByCategoria(Integer idCategoria);
-
+    List<ProductoDto> listarProductosPorSede(Integer idSede);
 }

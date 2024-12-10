@@ -11,4 +11,5 @@ public interface HorarioService {
     Optional<Horario> obtenerHorarioPorId(Integer id);
     Horario guardarHorario(Horario horario);
     Horario actualizarHorario(Integer id, Horario horario);
+    Horario buscarHorarioPorIdTienda(Integer idTienda);
 }

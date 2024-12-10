@@ -8,12 +8,15 @@ import com.tcshop.tcshopspring.modelo.entidades.Tienda;
 import com.tcshop.tcshopspring.servicios.HorarioServiceImpl;
 import com.tcshop.tcshopspring.servicios.TiendaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("api/horarios")
 public class HorarioController {
@@ -90,5 +93,35 @@ public class HorarioController {
         horario.setTienda(tienda);
 
         return horario;
+    }
+
+    @GetMapping("/tienda/{idTienda}")
+    public ResponseEntity<Object> obtenerHorarioPorIdTienda(@PathVariable Integer idTienda) {
+        Horario horario = horarioServiceImpl.buscarHorarioPorIdTienda(idTienda);
+        Tienda tienda = horario.getTienda();
+        if (horario == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        if (tienda != null) {
+            Tienda tiendadto = new Tienda();
+            tiendadto.setIdTienda(tienda.getIdTienda());
+            tiendadto.setNombre(tienda.getNombre());
+            tiendadto.setDescripcion(tienda.getDescripcion());
+            tiendadto.setUbicacion(tienda.getUbicacion());
+            tiendadto.setImagen(tienda.getImagen());
+            tiendadto.setQrImagen(tienda.getQrImagen());
+            tiendadto.setSede(tienda.getSede());
+            horario.setTienda(tiendadto);
+        }
+
+        LocalTime horaActual = LocalTime.now();
+
+        if (horaActual.isAfter(horario.getApertura()) && horaActual.isBefore(horario.getCierre())) {
+            horario.setEstado("abierto");
+        } else {
+            horario.setEstado("cerrado");
+        }
+
+        return ResponseEntity.ok(horario);
     }
 }

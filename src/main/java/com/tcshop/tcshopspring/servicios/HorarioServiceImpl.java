@@ -105,5 +105,8 @@ public class HorarioServiceImpl implements HorarioService {
                 (horaActual.isBefore(horario.getCierre()) || horaActual.equals(horario.getCierre()));
     }
 
-
+    @Override
+    public Horario buscarHorarioPorIdTienda(Integer idTienda) {
+        return horarioRepository.findByTiendaIdTienda(idTienda);
+    }
 }
