@@ -10,6 +10,7 @@ import com.tcshop.tcshopspring.modelo.entidades.Producto;
 import com.tcshop.tcshopspring.modelo.entidades.Tienda;
 import com.tcshop.tcshopspring.servicios.CloudinaryServiceImpl;
 import com.tcshop.tcshopspring.servicios.ProductoService;
+import com.tcshop.tcshopspring.servicios.TiendaServiceImpl;
 import com.tcshop.tcshopspring.stripe.StripeClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,14 +33,16 @@ public class ProductoController {
     private final TiendaRepository tiendaRepository;
     private final ProductoRepository productoRepository;
     private final CloudinaryServiceImpl cloudinaryServiceImpl;
+    private final TiendaServiceImpl tiendaService;
 
-    public ProductoController(ProductoService productoService, StripeClient stripeClient, CategoriaRepository categoriaRepository, TiendaRepository tiendaRepository, ProductoRepository productoRepository, CloudinaryServiceImpl cloudinaryServiceImpl) {
+    public ProductoController(ProductoService productoService, StripeClient stripeClient, CategoriaRepository categoriaRepository, TiendaRepository tiendaRepository, ProductoRepository productoRepository, CloudinaryServiceImpl cloudinaryServiceImpl, TiendaServiceImpl tiendaService) {
         this.productoService = productoService;
         this.stripeClient = stripeClient;
         this.categoriaRepository = categoriaRepository;
         this.tiendaRepository = tiendaRepository;
         this.productoRepository = productoRepository;
         this.cloudinaryServiceImpl = cloudinaryServiceImpl;
+        this.tiendaService = tiendaService;
     }
 
     @PostMapping
@@ -111,12 +114,55 @@ public class ProductoController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-
+    @GetMapping("/sede/{idSede}")
+    public ResponseEntity<List<ProductoDto>> getProductosBySede(@PathVariable Integer idSede) {
+        List<ProductoDto> productos = productoService.listarProductosPorSede(idSede);
+        if (productos.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(productos);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProducto(@PathVariable Integer id) {
         productoService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/tienda/{idTienda}")
+    public ResponseEntity<List<ProductoDto>> getProductosByTienda(@PathVariable Integer idTienda) {
+        List<Producto> productos = productoService.findByTienda(idTienda);
+
+        if (productos.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        List<ProductoDto> productoDtos = productos.stream().map(producto -> {
+            ProductoDto productoDto = new ProductoDto();
+            productoDto.setIdProducto(producto.getIdProducto());
+            productoDto.setNombre(producto.getNombre());
+            productoDto.setDescripcion(producto.getDescripcion());
+            productoDto.setPrecio(producto.getPrecio());
+            productoDto.setStock(producto.getStock());
+            productoDto.setImagen(producto.getImagenes());
+
+            Tienda tienda = producto.getTienda();
+            if (tienda != null) {
+                Tienda tiendaEntity = new Tienda();
+                tiendaEntity.setIdTienda(tienda.getIdTienda());
+                tiendaEntity.setNombre(tienda.getNombre());
+                tiendaEntity.setDescripcion(tienda.getDescripcion());
+                tiendaEntity.setUbicacion(tienda.getUbicacion());
+                tiendaEntity.setImagen(tienda.getImagen());
+                tiendaEntity.setQrImagen(tienda.getQrImagen());
+
+                productoDto.setTienda(tiendaEntity);
+            }
+
+            return productoDto;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(productoDtos);
     }
 
 

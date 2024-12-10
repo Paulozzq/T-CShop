@@ -176,7 +176,6 @@ public class PedidoController {
     }
 
 
-
     @PostMapping("/{idPedido}/pagar")
     public ResponseEntity<String> pagarCarrito(@PathVariable Integer idPedido,
                                                @RequestBody Map<String, Object> payload) {

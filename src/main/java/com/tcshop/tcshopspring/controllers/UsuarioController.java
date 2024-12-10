@@ -3,6 +3,7 @@ package com.tcshop.tcshopspring.controllers;
 import com.tcshop.tcshopspring.dto.UsuarioDto;
 import com.tcshop.tcshopspring.modelo.entidades.Usuario;
 import com.tcshop.tcshopspring.servicios.UsuarioService;
+import com.tcshop.tcshopspring.servicios.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +17,12 @@ import java.util.stream.Collectors;
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
+    private final UsuarioServiceImpl usuarioServiceImpl;
 
     @Autowired
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService, UsuarioServiceImpl usuarioServiceImpl) {
         this.usuarioService = usuarioService;
+        this.usuarioServiceImpl = usuarioServiceImpl;
     }
 
     // Obtener todos los usuarios
@@ -71,6 +74,7 @@ public class UsuarioController {
         return usuario.map(value -> ResponseEntity.ok(convertToDTO(value)))
                 .orElse(ResponseEntity.notFound().build());
     }
+
 
     // Métodos auxiliares para conversión
     private UsuarioDto convertToDTO(Usuario usuario) {
